@@ -1,8 +1,8 @@
 use clap::Parser;
+use inquire::Select;
 use std::env;
 use std::fs;
 use std::io;
-use inquire::Select;
 
 /// CLI tool to mark hledger transactions as cleared by matching them to a CSV file.
 #[derive(Parser)]
@@ -106,7 +106,7 @@ fn main() {
     // Read the journal file
     let journal = fs::read_to_string(&journal_path).expect("Could not read journal file");
 
-    // Process the journal (example logic)
+    // TODO:  Wrap this in a loglevel
     println!(
         "Processing journal: {}, CSV: {}, Output: {}",
         journal_path, cli.csv, cli.output
@@ -120,3 +120,5 @@ fn main() {
     // Write the updated journal back to the file
     fs::write(&journal_path, journal).expect("Could not write journal file");
 }
+
+// TODO:  Add tests.
