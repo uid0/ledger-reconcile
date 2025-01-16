@@ -1,0 +1,26 @@
+[package]
+name = "ledger-reconcile"
+version = "0.1.0"
+edition = "2021"
+
+# Optional fields
+description = "A CLI tool to mark hledger transactions as cleared by matching them to a CSV file"
+license = "MIT"
+repository = "https://github.com/uid0/ledger-reconcile/"
+keywords = ["hledger", "accounting", "csv", "cli"]
+readme = "README.md"
+
+[dependencies]
+# CSV parsing library
+csv = "1.1"
+
+# Command-line arguments and CLI utilities
+clap = { version = "4.2", features = ["derive"] }
+inquire = "0.5" # Alternative interactive library
+
+# File system utilities (standard library)
+# (No extra dependency required, as `std::fs` suffices for this use case)
+
+[dev-dependencies]
+# For testing, you might use assert_cmd or other libraries
+assert_cmd = "2.0" # Testing CLI commands
